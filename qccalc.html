@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>fysh's Queso Canyon Resource Calculator</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="pumpamt.js"></script>
+  </head>
+
+  <body>
+    <p>I am at Pump
+      <form>
+        <select id="pump">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </form>
+      <br>and I want
+      <form>
+        <input type="number" id="nachoreWant" min="1" step="1">
+      </form>
+      Nachore.
+    </p>
+    <p>I need <span id="nachoreNeed">10</span> Nachore for the next pump.</p>
+    <p>I am pumping <span id="display">1</span> Bland Queso per catch.</p>
+
+    <br>
+
+    <div>
+      <p>
+        Using Bland Queso only, you'll need about
+        <span id="blq1">0</span>
+         catches, which requires
+        <span id="blq2">0</span>
+         Bland Queso.
+      </p>
+      <p>
+        You'll accumulate
+        <span id="blq3">0</span>
+         Bland Queso in
+        <span id="blq4">0</span>
+         catches.
+      </p>
+      <p>
+        In total, you'll spend
+         a minimum of
+        <span id="blq5">0</span>
+         hunts and
+        <span id="blq6">0</span>
+         Bland Queso.
+      </p>
+    </div>
+  </body>
+
+</html>
