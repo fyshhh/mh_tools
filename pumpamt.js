@@ -18,7 +18,7 @@ window.onload = function () {
         },
         i,
         blq = [];
-    for (i = 1; i <= 4; i += 1) {
+    for (i = 1; i <= 6; i += 1) {
         blq[(i - 1)] = document.getElementById("blq" + i);
     }
     nachoreW.onkeypress = function (e) {
