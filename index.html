@@ -1,3 +1,4 @@
+<!--Version 1.3-->
 <!DOCTYPE html>
 <html>
 
@@ -9,355 +10,460 @@
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
     integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
     crossorigin="anonymous">
+    <style>
+      body {
+          padding: 20px;
+      }
+      form {
+          display: inline;
+      }
+      input[type=number] {
+        width: 75px;
+      }
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0px;
+      }
+    </style>
   </head>
 
   <body>
-    <!--User Input-->
-    <div>
-      <p>I am at Pump
-        <form>
-          <select id="pump">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
-        </form>
-        <br>and I want
-        <form>
-          <input type="number" id="nachoreWant" min="1" step="1">
-        </form>
-        Nachore.
-      </p>
-      <p>I am
-        <form>
-          <select id="mEss">
-            <option value="3">not using</option>
-            <option value="6">using</option>
-          </select>
-        </form>
-        Magic Essence for my conversions.
-      </p>
+    <div class="container">
+      <!--User Input-->
+      <div>
+        <p style="display: inline;">I am at Pump
+          <form>
+            <select id="pump">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </form>
+          and I want
+          <form>
+            <input type="number" id="nachoreWant" min="1" step="1">
+          </form>
+          Nachore.
+        </p>
+        <p style="display: inline;">I am
+          <form>
+            <select id="mEss">
+              <option value="3">not using</option>
+              <option value="6">using</option>
+            </select>
+          </form>
+          Magic Essence for my conversions.
+        </p>
+        <p style="display: inline;">I am
+          <form>
+            <select id="oesb">
+              <option value="0">not using</option>
+              <option value="0.5">using</option>
+            </select>
+          </form>
+          an Overgrown Ember Stone Base.
+        </p>
+        <p style="display: inline;">I am
+          <form>
+            <select id="qpc">
+              <option value="1">not using</option>
+              <option value="2">using</option>
+            </select>
+          </form>
+          Queso Pump Charms.
+        </p>
+        <br>
+        <p>I need
+          <span id="nachoreNeed">10</span>
+          Nachore for the next pump.
+        </p>
+        <p>I am pumping
+          <span id="display">1</span>
+          Bland Queso per catch<span id="addP"></span>.
+        </p>
+      </div>
+      <!--Best cheese-->
+      <div style="font-weight:bold">
+        <p>
+          The most time efficient strategy is to use
+          <span id="bestQ">Bland Queso</span>,
+          which will take a minimum of
+          <span id="bestH">0</span>
+          hunts<span id="bestM"></span>.
+        </p>
+        <p>
+          Using Magic Essence
+          <span class="messG">would have</span>
+          saved you
+          <span id="saveN">0</span>
+          catches or
+          <span id="saveP">0.000</span>%
+          of your catches.
+        </p>
+      </div>
       <br>
-      <p>I need
-        <span id="nachoreNeed">10</span>
-        Nachore for the next pump.
-      </p>
-      <p>I am pumping
-        <span id="display">1</span>
-        Bland Queso per catch.
-      </p>
-    </div>
-    <!--Best cheese-->
-    <div style="font-weight:bold">
-      <p>
-        The most time efficient strategy is to use
-        <span id="bestQ">nothing at all</span>,
-        which will take a minimum of
-        <span id="bestH">no</span>
-        hunts.
-      </p>
-    </div>
-    <br>
-    <!--Bland Queso-->
-    <div>
-      <p>
-        Using Bland Queso only, you'll need about
-        <span id="blq1">0</span>
-        catches, which requires
-        <span id="blq2">0</span>
-        Bland Queso.
-      </p>
-      <p>
-        You'll accumulate
-        <span id="blq3">0</span>
-        Bland Queso in
-        <span id="blq4">0</span>
-        <span id="blq5"> catches.</span>
-      </p>
-      <p>
-        In total, you'll spend a minimum of
-        <span id="blq6">0</span>
-        hunts and
-        <span id="blq7">0</span>
-        Bland Queso.
-      </p>
-    </div>
-    <br>
-    <!--Mild Queso-->
-    <div>
-      <p>
-        Using Mild Queso, you'll need about
-        <span id="miq1">0</span>
-        catches, which requires
-        <span id="miq2">0</span>
-        Mild Queso.
-      </p>
-      <p>
-        This requires
-        <span id="miq3">0</span>
-        <span id="miq4"> batches</span>
-        of Mild Queso, which requires
-        <span id="miq5">0</span>
-        Mild Spice Leaves.
-      </p>
-      <p>
-        You'll accumulate
-        <span id="miq6">0</span>
-        Mild Spice Leaves in about
-        <span id="miq7">0</span>
-        catches, which requires
-        <span id="miq8">0</span>
-        Bland Queso.
-      </p>
-      <p>
-        You'll accumulate
-        <span id="miq9">0</span>
-        Bland Queso in
-        <span id="miq10">0</span>
-        <span id="miq11"> catches.</span>
-      </p>
-      <p>
-        In total, you'll spend a minimum of
-        <span id="miq12">0</span>
-        hunts and
-        <span id="miq13">0</span>
-        Bland Queso.
-      </p>
-    </div>
-    <br>
-    <!--Medium Queso-->
-    <div>
-      <p>
-        Using Medium Queso, you'll need about
-        <span id="meq1">0</span>
-        catches, which requires
-        <span id="meq2">0</span>
-        Medium Queso.
-      </p>
-      <p>
-        This requires
-        <span id="meq3">0</span>
-        <span id="meq4"> batches</span>
-        of Medium Queso, which requires
-        <span id="meq5">0</span>
-        Medium Queso Leaves.
-      </p>
-      <p>
-        You'll accumulate
-        <span id="meq6">0</span>
-        Medium Queso Leaves in about
-        <span id="meq7">0</span>
-        catches, which requires
-        <span id="meq8">0</span>
-        Mild Queso.
-      </p>
-      <p>
-        This requires
-        <span id="meq9">0</span>
-        <span id="meq10"> batches</span>
-        of Mild Queso, which requires
-        <span id="meq11">0</span>
-        Mild Spice Leaves.
-      </p>
-      <p>
-        You'll accumulate
-        <span id="meq12">0</span>
-        Mild Spice Leaves in about
-        <span id="meq13">0</span>
-        catches, which requires
-        <span id="meq14">0</span>
-        Bland Queso.
-      </p>
-      <p>
-        You'll accumulate
-        <span id="meq15">0</span>
-        Bland Queso in
-        <span id="meq16">0</span>
-        <span id="meq17"> catches.</span>
-      </p>
-      <p>
-        In total, you'll spend a minimum of
-        <span id="meq18">0</span>
-        hunts and
-        <span id="meq19">0</span>
-        Bland Queso.
-      </p>
-    </div>
-    <br>
-    <!--Hot Queso-->
-    <div>
-      <p>
-        Using Hot Queso, you'll need about
-        <span id="hoq1">0</span>
-        catches, which requires
-        <span id="hoq2">0</span>
-        Hot Queso.
-      </p>
-      <p>
-        This requires
-        <span id="hoq3">0</span>
-        <span id="hoq4"> batches</span>
-        of Hot Queso, which requires
-        <span id="hoq5">0</span>
-        Hot Queso Leaves.
-      </p>
-      <p>
-        You'll accumulate
-        <span id="hoq6">0</span>
-        Hot Queso Leaves in about
-        <span id="hoq7">0</span>
-        catches, which requires
-        <span id="hoq8">0</span>
-        Medium Queso.
-      </p>
-      <p>
-        This requires
-        <span id="hoq9">0</span>
-        <span id="hoq10"> batches</span>
-        of Medium Queso, which requires
-        <span id="hoq11">0</span>
-        Medium Queso Leaves.
-      </p>
-      <p>
-        You'll accumulate
-        <span id="hoq12">0</span>
-        Medium Queso Leaves in about
-        <span id="hoq13">0</span>
-        catches, which requires
-        <span id="hoq14">0</span>
-        Mild Queso.
-      </p>
-      <p>
-        This requires
-        <span id="hoq15">0</span>
-        <span id="hoq16"> batches</span>
-        of Mild Queso, which requires
-        <span id="hoq17">0</span>
-        Mild Spice Leaves.
-      </p>
-      <p>
-        You'll accumulate
-        <span id="hoq18">0</span>
-        Mild Spice Leaves in about
-        <span id="hoq19">0</span>
-        catches, which requires
-        <span id="hoq20">0</span>
-        Bland Queso.
-      </p>
-      <p>
-        You'll accumulate
-        <span id="hoq21">0</span>
-        Bland Queso in
-        <span id="hoq22">0</span>
-        <span id="hoq23"> catches.</span>
-      </p>
-      <p>
-        In total, you'll spend a minimum of
-        <span id="hoq24">0</span>
-        hunts and
-        <span id="hoq25">0</span>
-        Bland Queso.
-      </p>
-    </div>
-    <br>
-    <!--Flamin' Queso-->
-    <div>
-      <p>
-        Using Flamin' Queso, you'll need about
-        <span id="flq1">0</span>
-        catches, which requires
-        <span id="flq2">0</span>
-        Flamin' Queso.
-      </p>
-      <p>
-        This requires
-        <span id="flq3">0</span>
-        <span id="flq4"> batches</span>
-        of Flamin' Queso, which requires
-        <span id="flq5">0</span>
-        Flamin' Queso Leaves.
-      </p>
-      <p>
-        You'll accumulate
-        <span id="flq6">0</span>
-        Flamin' Queso Leaves in about
-        <span id="flq7">0</span>
-        catches, which requires
-        <span id="flq8">0</span>
-        Hot Queso.
-      </p>
-      <p>
-        This requires
-        <span id="flq9">0</span>
-        <span id="flq10"> batches</span>
-        of Hot Queso, which requires
-        <span id="flq11">0</span>
-        Hot Queso Leaves.
-      </p>
-      <p>
-        You'll accumulate
-        <span id="flq12">0</span>
-        Hot Queso Leaves in about
-        <span id="flq13">0</span>
-        catches, which requires
-        <span id="flq14">0</span>
-        Medium Queso.
-      </p>
-      <p>
-        This requires
-        <span id="flq15">0</span>
-        <span id="flq16"> batches</span>
-        of Medium Queso, which requires
-        <span id="flq17">0</span>
-        Medium Queso Leaves.
-      </p>
-      <p>
-        You'll accumulate
-        <span id="flq18">0</span>
-        Medium Queso Leaves in about
-        <span id="flq19">0</span>
-        catches, which requires
-        <span id="flq20">0</span>
-        Mild Queso.
-      </p>
-      <p>
-        This requires
-        <span id="flq21">0</span>
-        <span id="flq22"> batches</span>
-        of Mild Queso, which requires
-        <span id="flq23">0</span>
-        Mild Spice Leaves.
-      </p>
-      <p>
-        You'll accumulate
-        <span id="flq24">0</span>
-        Mild Spice Leaves in about
-        <span id="flq25">0</span>
-        catches, which requires
-        <span id="flq26">0</span>
-        Bland Queso.
-      </p>
-      <p>
-        You'll accumulate
-        <span id="flq27">0</span>
-        Bland Queso in
-        <span id="flq28">0</span>
-        <span id="flq29"> catches.</span>
-      </p>
-      <p>
-        In total, you'll spend a minimum of
-        <span id="flq30">0</span>
-        hunts and
-        <span id="flq31">0</span>
-        Bland Queso.
-      </p>
+      <!--Bland Queso-->
+      <div>
+        <p>
+          Using Bland Queso only, you'll need about
+          <span id="blq1">0.000</span>
+          catches, which requires
+          <span id="blq2">0</span>
+          Bland Queso.
+        </p>
+        <p>
+          You'll accumulate
+          <span id="blq3">0</span>
+          Bland Queso in
+          <span id="blq4">0</span>
+          <span id="blq5"> catches.</span>
+        </p>
+      </div>
+      <!--Bland Queso Bolded-->
+      <div style="font-weight:bold">
+        <p>
+          In total, you'll spend a minimum of
+          <span id="blq6">0</span>
+          hunts<span id="addText0"></span> and
+          <span id="blq7">0</span>
+          Bland Queso.
+        </p>
+        <p>
+          Using Magic Essence
+          <span class="messG">would have</span>
+          saved you
+          <span id="blq8">0</span>
+          catches or
+          <span id="blq9">0.000</span>%
+          of your catches (what did you expect?).
+        </p>
+      </div>
+      <br>
+      <!--Mild Queso-->
+      <div>
+        <p>
+          Using Mild Queso, you'll need about
+          <span id="miq1">0.000</span>
+          catches, which requires
+          <span id="miq2">0</span>
+          Mild Queso.
+        </p>
+        <p>
+          This requires
+          <span id="miq3">0</span>
+          <span id="miq4"> batches</span>
+          of Mild Queso, which requires
+          <span id="miq5">0</span>
+          Mild Spice Leaves.
+        </p>
+        <p>
+          You'll accumulate
+          <span id="miq6">0</span>
+          Mild Spice Leaves in about
+          <span id="miq7">0.000</span>
+          catches, which requires
+          <span id="miq8">0</span>
+          Bland Queso.
+        </p>
+        <p>
+          You'll accumulate
+          <span id="miq9">0</span>
+          Bland Queso in
+          <span id="miq10">0</span>
+          <span id="miq11"> catches.</span>
+        </p>
+      </div>
+      <!--Mild Queso Bolded-->
+      <div style="font-weight:bold">
+        <p>
+          In total, you'll spend a minimum of
+          <span id="miq12">0</span>
+          hunts<span id="addText1"></span> and
+          <span id="miq13">0</span>
+          Bland Queso.
+        </p>
+        <p>
+          Using Magic Essence
+          <span class="messG">would have</span>
+          saved you
+          <span id="miq14">0</span>
+          catches or
+          <span id="miq15">0.000</span>%
+          of your catches.
+        </p>
+      </div>
+      <br>
+      <!--Medium Queso-->
+      <div>
+        <p>
+          Using Medium Queso, you'll need about
+          <span id="meq1">0.000</span>
+          catches, which requires
+          <span id="meq2">0</span>
+          Medium Queso.
+        </p>
+        <p>
+          This requires
+          <span id="meq3">0</span>
+          <span id="meq4"> batches</span>
+          of Medium Queso, which requires
+          <span id="meq5">0</span>
+          Medium Queso Leaves.
+        </p>
+        <p>
+          You'll accumulate
+          <span id="meq6">0</span>
+          Medium Queso Leaves in about
+          <span id="meq7">0.000</span>
+          catches, which requires
+          <span id="meq8">0</span>
+          Mild Queso.
+        </p>
+        <p>
+          This requires
+          <span id="meq9">0</span>
+          <span id="meq10"> batches</span>
+          of Mild Queso, which requires
+          <span id="meq11">0</span>
+          Mild Spice Leaves.
+        </p>
+        <p>
+          You'll accumulate
+          <span id="meq12">0</span>
+          Mild Spice Leaves in about
+          <span id="meq13">0.000</span>
+          catches, which requires
+          <span id="meq14">0</span>
+          Bland Queso.
+        </p>
+        <p>
+          You'll accumulate
+          <span id="meq15">0</span>
+          Bland Queso in
+          <span id="meq16">0</span>
+          <span id="meq17"> catches.</span>
+        </p>
+      </div>
+      <!--Medium Queso Bolded-->
+      <div style="font-weight:bold">
+        <p>
+          In total, you'll spend a minimum of
+          <span id="meq18">0</span>
+          hunts<span id="addText2"></span> and
+          <span id="meq19">0</span>
+          Bland Queso.
+        </p>
+        <p>
+          Using Magic Essence
+          <span class="messG">would have</span>
+          saved you
+          <span id="meq20">0</span>
+          catches or
+          <span id="meq21">0.000</span>%
+          of your catches.
+        </p>
+      </div>
+      <br>
+      <!--Hot Queso-->
+      <div>
+        <p>
+          Using Hot Queso, you'll need about
+          <span id="hoq1">0.000</span>
+          catches, which requires
+          <span id="hoq2">0</span>
+          Hot Queso.
+        </p>
+        <p>
+          This requires
+          <span id="hoq3">0</span>
+          <span id="hoq4"> batches</span>
+          of Hot Queso, which requires
+          <span id="hoq5">0</span>
+          Hot Queso Leaves.
+        </p>
+        <p>
+          You'll accumulate
+          <span id="hoq6">0</span>
+          Hot Queso Leaves in about
+          <span id="hoq7">0.000</span>
+          catches, which requires
+          <span id="hoq8">0</span>
+          Medium Queso.
+        </p>
+        <p>
+          This requires
+          <span id="hoq9">0</span>
+          <span id="hoq10"> batches</span>
+          of Medium Queso, which requires
+          <span id="hoq11">0</span>
+          Medium Queso Leaves.
+        </p>
+        <p>
+          You'll accumulate
+          <span id="hoq12">0</span>
+          Medium Queso Leaves in about
+          <span id="hoq13">0.000</span>
+          catches, which requires
+          <span id="hoq14">0</span>
+          Mild Queso.
+        </p>
+        <p>
+          This requires
+          <span id="hoq15">0</span>
+          <span id="hoq16"> batches</span>
+          of Mild Queso, which requires
+          <span id="hoq17">0</span>
+          Mild Spice Leaves.
+        </p>
+        <p>
+          You'll accumulate
+          <span id="hoq18">0</span>
+          Mild Spice Leaves in about
+          <span id="hoq19">0.000</span>
+          catches, which requires
+          <span id="hoq20">0</span>
+          Bland Queso.
+        </p>
+        <p>
+          You'll accumulate
+          <span id="hoq21">0</span>
+          Bland Queso in
+          <span id="hoq22">0</span>
+          <span id="hoq23"> catches.</span>
+        </p>
+      </div>
+      <!--Hot Queso Bolded-->
+      <div style="font-weight:bold">
+        <p>
+          In total, you'll spend a minimum of
+          <span id="hoq24">0</span>
+          hunts<span id="addText3"></span> and
+          <span id="hoq25">0</span>
+          Bland Queso.
+        </p>
+        <p>
+          Using Magic Essence
+          <span class="messG">would have</span>
+          saved you
+          <span id="hoq26">0</span>
+          catches or
+          <span id="hoq27">0.000</span>%
+          of your catches.
+        </p>
+      </div>
+      <br>
+      <!--Flamin' Queso-->
+      <div>
+        <p>
+          Using Flamin' Queso, you'll need about
+          <span id="flq1">0.000</span>
+          catches, which requires
+          <span id="flq2">0</span>
+          Flamin' Queso.
+        </p>
+        <p>
+          This requires
+          <span id="flq3">0</span>
+          <span id="flq4"> batches</span>
+          of Flamin' Queso, which requires
+          <span id="flq5">0</span>
+          Flamin' Queso Leaves.
+        </p>
+        <p>
+          You'll accumulate
+          <span id="flq6">0</span>
+          Flamin' Queso Leaves in about
+          <span id="flq7">0.000</span>
+          catches, which requires
+          <span id="flq8">0</span>
+          Hot Queso.
+        </p>
+        <p>
+          This requires
+          <span id="flq9">0</span>
+          <span id="flq10"> batches</span>
+          of Hot Queso, which requires
+          <span id="flq11">0</span>
+          Hot Queso Leaves.
+        </p>
+        <p>
+          You'll accumulate
+          <span id="flq12">0</span>
+          Hot Queso Leaves in about
+          <span id="flq13">0.000</span>
+          catches, which requires
+          <span id="flq14">0</span>
+          Medium Queso.
+        </p>
+        <p>
+          This requires
+          <span id="flq15">0</span>
+          <span id="flq16"> batches</span>
+          of Medium Queso, which requires
+          <span id="flq17">0</span>
+          Medium Queso Leaves.
+        </p>
+        <p>
+          You'll accumulate
+          <span id="flq18">0</span>
+          Medium Queso Leaves in about
+          <span id="flq19">0.000</span>
+          catches, which requires
+          <span id="flq20">0</span>
+          Mild Queso.
+        </p>
+        <p>
+          This requires
+          <span id="flq21">0</span>
+          <span id="flq22"> batches</span>
+          of Mild Queso, which requires
+          <span id="flq23">0</span>
+          Mild Spice Leaves.
+        </p>
+        <p>
+          You'll accumulate
+          <span id="flq24">0</span>
+          Mild Spice Leaves in about
+          <span id="flq25">0.000</span>
+          catches, which requires
+          <span id="flq26">0</span>
+          Bland Queso.
+        </p>
+        <p>
+          You'll accumulate
+          <span id="flq27">0</span>
+          Bland Queso in
+          <span id="flq28">0</span>
+          <span id="flq29"> catches.</span>
+        </p>
+      </div>
+      <!--Flamin' Queso Bolded-->
+      <div style="font-weight:bold">
+        <p>
+          In total, you'll spend a minimum of
+          <span id="flq30">0</span>
+          hunts<span id="addText4"></span> and
+          <span id="flq31">0</span>
+          Bland Queso.
+        </p>
+        <p>
+          Using Magic Essence
+          <span class="messG">would have</span>
+          saved you
+          <span id="flq32">0</span>
+          catches or
+          <span id="flq33">0.000</span>%
+          of your catches.
+        </p>
+      </div>
     </div>
   </body>
 
